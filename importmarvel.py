@@ -24,7 +24,11 @@ def create_marvel_graph(file_name):
 						boo=True				
 				else:
 					lab+=ch
-			G.add_node(i,label=lab)
+			lab=lab.replace('\"','')
+			if i<=6486:
+				G.add_node(i,label=lab,ntype='character')
+			else:
+				G.add_node(i,label=lab,ntype='book')
 
 		elif i>19429: #line 19429 indicates that the following lines will have the edges
 			m=line.rstrip().split()
